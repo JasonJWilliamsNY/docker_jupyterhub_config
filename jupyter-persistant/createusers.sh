@@ -2,8 +2,7 @@
 
 for user in $(cat ./usernames.txt)
   do
-  mkdir /jupyter-persistant/$user
-  touch /jupyter-persistant/$user/.do_not_delete.txt
+  cp -r /jupyter-persistant/skel /jupyter-persistant/$user
   base=$user
   password=$(openssl passwd -1 -salt xyz $base'.123')
   useradd -p $password $user
