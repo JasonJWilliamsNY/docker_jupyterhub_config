@@ -1,0 +1,21 @@
+[NotebookApp | WARNING] No nbgrader_config.py file found (rerun with --debug to see where nbgrader is looking)
+[NotebookApp | INFO] Loading the validate_assignment nbgrader serverextension
+[NotebookApp | INFO] Serving notebooks from local directory: /Users/jasonwilliams/Desktop/jub
+[NotebookApp | INFO] 0 active kernels 
+[NotebookApp | INFO] The Jupyter Notebook is running at: http://localhost:8888/?token=efcf12891c16a9c9e77e5787ba50b9876ea3119ee36925de
+[NotebookApp | INFO] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[NotebookApp | CRITICAL] 
+    
+    Copy/paste this URL into your browser when you connect for the first time,
+    to login with a token:
+        http://localhost:8888/?token=efcf12891c16a9c9e77e5787ba50b9876ea3119ee36925de
+[NotebookApp | INFO] Accepting one-time-token-authenticated connection from ::1
+[NotebookApp | INFO] Creating new notebook in 
+[NotebookApp | INFO] Kernel started: 640a0624-bbaf-40d2-a24b-08bbb93d4d40
+[NotebookApp | INFO] Saving file at /CreateHassshedPasswords.ipynb
+[NotebookApp | INFO] Saving file at /CreateHassshedPasswords.ipynb
+[NotebookApp | INFO] Saving file at /CreateHassshedPasswords.ipynb
+[NotebookApp | INFO] interrupted
+[NotebookApp | CRITICAL] Shutdown confirmed
+[NotebookApp | INFO] Shutting down kernels
+[NotebookApp | INFO] Kernel shutdown: 640a0624-bbaf-40d2-a24b-08bbb93d4d40
