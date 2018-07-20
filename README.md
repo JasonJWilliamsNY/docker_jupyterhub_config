@@ -3,7 +3,7 @@ Configfiles for dockerized-jupyterhub
 
 # Draft instructions
 
-Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev2.2/
+Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev2.3/
 
 ## Setup config files
 
@@ -50,11 +50,11 @@ Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev2.2/
 2. Start the container with this command (remember to edit the location of
    `jupyterhub-persistant/`)
 
-        docker run -p 8000:8000 --name jupyterhub -d -v SOMEPATH/jupyter-persistant:/jupyter-persistant jasonjwilliamsny/ubuntu-jhub-dev2.2:latest
+        docker run -p 8000:8000 --name jupyterhub -d -v SOMEPATH/jupyter-persistant:/jupyter-persistant jasonjwilliamsny/ubuntu-jhub-dev2.3:latest
 
     You can also add options to explicitly allow cpu/memory usage
 
-        docker run -p 8000:8000 --cpus="16" --memory=60g  --name jupyterhub -d -v SOMEPATH/jupyter-persistant:/jupyter-persistant jasonjwilliamsny/ubuntu-jhub-dev2.2:latest
+        docker run -p 8000:8000 --cpus="16" --memory=60g  --name jupyterhub -d -v SOMEPATH/jupyter-persistant:/jupyter-persistant jasonjwilliamsny/ubuntu-jhub-dev2.3:latest
 
 3. Docker will be available at the ip address of the machine
 

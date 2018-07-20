@@ -4,7 +4,7 @@
 ##########   IMPORTANT   #############
 # To work properly, git clone https://github.com/JasonJWilliamsNY/docker_jupyterhub_config
 # use the following command to start the container
-# docker run -p 8000:8000 --name jupyterhub -d -v SOMEPATH/jupyter-persistant:/jupyter-persistant jasonjwilliamsny/ubuntu-jhub-dev2.2:latest
+# docker run -p 8000:8000 --name jupyterhub -d -v SOMEPATH/jupyter-persistant:/jupyter-persistant jasonjwilliamsny/ubuntu-jhub-dev2.3:latest
 #
 # Based on Ubuntu
 FROM ubuntu:bionic-20180710
@@ -62,6 +62,7 @@ RUN python3 -m pip install\
 RUN jupyter contrib nbextension install --system
 RUN jupyter nbextensions_configurator enable --system
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
+RUN python3 -m bash_kernel.install
 #
 #
 # Expose port 8000
