@@ -45,7 +45,7 @@ Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev2.3/
 
 1. Pull the image from dockerhub
 
-        docker pull jasonjwilliamsny/ubuntu-jhub-dev2.2
+        docker pull jasonjwilliamsny/ubuntu-jhub-dev2.3
 
 2. Start the container with this command (remember to edit the location of
    `jupyterhub-persistant/`)
@@ -68,4 +68,3 @@ Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev2.3/
 - add instruction for certificate creation for SSL
 - Docker container must have enough resources (CPU/MEM/DISK) to run a container
   with many users (need to test)
-- add bash kernel to Dockerfile?
