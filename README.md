@@ -9,17 +9,17 @@ Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev2.2/
 
 ### Enter usernames for your hub users
 
-1. Clone this repo.
-   In `jupyterhub-persistant` edit `usernames.txt`; this file
-   should have a valid linux username (one name per line).
-   accounts will be created in your container for each user.
-   the sample list has `user1`,`user2`, and `user3`. Usernames
-   have passwords such that: `some_username.123`.
+1. Clone this repo and place the `jupyterhub-persistant` in
+   a convenient location on your server. In `jupyterhub-persistant/`
+   edit `usernames.txt`; this file should have one or more valid linux
+   username(s) (one name per line). Accounts will be created in your
+   container for each user. The sample list has `user1`,`user2`,
+   and `user3`. Usernames have passwords such that: `some_username.123`.
 
    Note: Your user will have a home directory at `/home/$user`
    This will be a symbolic link to a folder `$user` that will
    be created on the machine running the docker container.
-   In this way, data and changes made by the user will exist
+   In this way, data and changes made by the user on the hub will exist
    persistently outside of the container.
 
 ### Indicate hub admin users
@@ -32,7 +32,8 @@ Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev2.2/
        c.Authenticator.admin_users = {"user_foo","user_bar"}
 
 ### Copy jupyter-persistant
-1. Place `jupyterhub-persistant` in a suitable location on the
+
+1. Place `jupyterhub-persistant/` in a suitable location on the
    machine where Docker is hosted.
 2. Make sure `/jupyterhub-persistant/createusers.sh` is executable:
 
@@ -45,7 +46,8 @@ Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev2.2/
 
         docker pull jasonjwilliamsny/ubuntu-jhub-dev2.2
 
-2. Start the container with this command (remember to edit the location of `jupyterhub-persistant`)
+2. Start the container with this command (remember to edit the location of
+   `jupyterhub-persistant/`)
 
         docker run -p 8000:8000 --name jupyterhub -d -v SOMEPATH/jupyter-persistant:/jupyter-persistant jasonjwilliamsny/ubuntu-jhub-dev2.2:latest
 
@@ -57,8 +59,13 @@ Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev2.2/
 
         localhost:8000
 
+   *Tip:* Using the Hub's Terminal, have users clone a repo of notebooks
+   into their home directory.
+
 ## Things to think about/to do
 
 - add instruction for certificate creation for SSL
 - Docker container must have enough resources (CPU/MEM/DISK) to run a container
   with many users (need to test)
+- improve `createusers.sh` to handle the case where a docker container is
+  restarted and username folder already exist in `jupyterhub-persistant`
