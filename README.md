@@ -9,7 +9,7 @@ Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev2.2/
 
 ### Enter usernames for your hub users
 
-1. Clone this repo and place the `jupyterhub-persistant` in
+1. Clone this repo and place `jupyterhub-persistant/` in
    a convenient location on your server. In `jupyterhub-persistant/`
    edit `usernames.txt`; this file should have one or more valid linux
    username(s) (one name per line). Accounts will be created in your
@@ -17,8 +17,8 @@ Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev2.2/
    and `user3`. Usernames have passwords such that: `some_username.123`.
 
    Note: Your user will have a home directory at `/home/$user`
-   This will be a symbolic link to a folder `$user` that will
-   be created on the machine running the docker container.
+   This will be a symbolic link to a folder `jupyterhub-persistant/$user`
+   that will be created on the machine running the docker container.
    In this way, data and changes made by the user on the hub will exist
    persistently outside of the container.
 
@@ -26,7 +26,7 @@ Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev2.2/
 
 1. You should setup at least one user from your username list
    to be a hub admin user. In the `jupyterhub_config.py` file,
-   edit `c.Authenticator.admin_users`. Include in the brackets,
+   edit `c.Authenticator.admin_users`. Include in the brackets
    quoted, comma-separated usernames.
 
        c.Authenticator.admin_users = {"user_foo","user_bar"}
@@ -34,7 +34,8 @@ Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev2.2/
 ### Copy jupyter-persistant
 
 1. Place `jupyterhub-persistant/` in a suitable location on the
-   machine where Docker is hosted.
+   machine where Docker is hosted. The `-v` option used at execution
+   will bind this folder.
 2. Make sure `/jupyterhub-persistant/createusers.sh` is executable:
 
         chmod +x SOMEPATH/jupyterhub-persistant/createusers.sh
@@ -67,5 +68,4 @@ Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev2.2/
 - add instruction for certificate creation for SSL
 - Docker container must have enough resources (CPU/MEM/DISK) to run a container
   with many users (need to test)
-- improve `createusers.sh` to handle the case where a docker container is
-  restarted and username folder already exist in `jupyterhub-persistant`
+- add bash kernel to Dockerfile?
