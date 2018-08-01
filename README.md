@@ -3,8 +3,8 @@ Configfiles for dockerized-jupyterhub
 
 # Draft instructions
 
-Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev3.0/
-Doker pull command: `docker pull jasonjwilliamsny/ubuntu-jhub-dev3.0`
+- Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev3.0/
+- Docker pull command: `docker pull jasonjwilliamsny/ubuntu-jhub-dev3.0`
 
 ## Setup config files
 
