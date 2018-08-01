@@ -10,15 +10,27 @@ for user in $(cat /jupyter-persistant/usernames.txt)
   do
   if ! id "$user" >/dev/null 2>&1
   then
-      cp -r /jupyter-persistant/skel /jupyter-persistant/$user
-      echo "Creating persistant folder for $user"
-      base=$user
-      password=$(openssl passwd -1 -salt xyz $base'.123')
-      useradd -p $password $user
-      ln -s /jupyter-persistant/$user /home/$user
-      chown -R $user /jupyter-persistant/$user
-      chown -R $user /home/$user
-      echo "user $user added successfully!"
+      if [ "/jupyter-persistant/$user" ]
+      then
+          echo "Using existing persistant folder for $user"
+          base=$user
+          password=$(openssl passwd -1 -salt xyz $base'.123')
+          useradd -p $password $user
+          ln -s /jupyter-persistant/$user /home/$user
+          chown -R $user /jupyter-persistant/$user
+          chown -R $user /home/$user
+          echo "user $user added successfully!"
+      else
+          echo "Creating persistant folder for $user"
+          cp -r /jupyter-persistant/skel /jupyter-persistant/$user
+          base=$user
+          password=$(openssl passwd -1 -salt xyz $base'.123')
+          useradd -p $password $user
+          ln -s /jupyter-persistant/$user /home/$user
+          chown -R $user /jupyter-persistant/$user
+          chown -R $user /home/$user
+          echo "user $user added successfully!"
+      fi
   else
       if [ ! -L "/home/$user" ]
       then
