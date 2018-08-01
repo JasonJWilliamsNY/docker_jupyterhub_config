@@ -3,7 +3,8 @@ Configfiles for dockerized-jupyterhub
 
 # Draft instructions
 
-Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev2.3/
+Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev3.0/
+Doker pull command: `docker pull jasonjwilliamsny/ubuntu-jhub-dev3.0`
 
 ## Setup config files
 
@@ -15,6 +16,10 @@ Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev2.3/
    username(s) (one name per line). Accounts will be created in your
    container for each user. The sample list has `user1`,`user2`,
    and `user3`. Usernames have passwords such that: `some_username.123`.
+
+   *tip*: You can edit the password in line 16 of `createusers.sh`
+   `password=$(openssl passwd -1 -salt xyz $base'.123')` currently appends `.123`
+    to the end of the username (which is also = to $base in this line)
 
    Note: Your user will have a home directory at `/home/$user`
    This will be a symbolic link to a folder `jupyterhub-persistant/$user`
@@ -45,16 +50,16 @@ Docker image: https://hub.docker.com/r/jasonjwilliamsny/ubuntu-jhub-dev2.3/
 
 1. Pull the image from dockerhub
 
-        docker pull jasonjwilliamsny/ubuntu-jhub-dev2.3
+        docker pull jasonjwilliamsny/ubuntu-jhub-dev3.0
 
 2. Start the container with this command (remember to edit the location of
    `jupyterhub-persistant/`)
 
-        docker run -p 8000:8000 --name jupyterhub -d -v SOMEPATH/jupyter-persistant:/jupyter-persistant jasonjwilliamsny/ubuntu-jhub-dev2.3:latest
+        docker run -p 8000:8000 --name jupyterhub -d -v SOMEPATH/jupyter-persistant:/jupyter-persistant jasonjwilliamsny/ubuntu-jhub-dev3.0:latest
 
     You can also add options to explicitly allow cpu/memory usage
 
-        docker run -p 8000:8000 --cpus="16" --memory=60g  --name jupyterhub -d -v SOMEPATH/jupyter-persistant:/jupyter-persistant jasonjwilliamsny/ubuntu-jhub-dev2.3:latest
+        docker run -p 8000:8000 --cpus="16" --memory=60g  --name jupyterhub -d -v SOMEPATH/jupyter-persistant:/jupyter-persistant jasonjwilliamsny/ubuntu-jhub-dev3.0:latest
 
 3. Docker will be available at the ip address of the machine
 

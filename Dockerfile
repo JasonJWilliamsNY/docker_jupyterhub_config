@@ -4,7 +4,7 @@
 ##########   IMPORTANT   #############
 # To work properly, git clone https://github.com/JasonJWilliamsNY/docker_jupyterhub_config
 # use the following command to start the container
-# docker run -p 8000:8000 --name jupyterhub -d -v SOMEPATH/jupyter-persistant:/jupyter-persistant jasonjwilliamsny/ubuntu-jhub-dev2.3:latest
+# docker run -p 8000:8000 --name jupyterhub -d -v SOMEPATH/jupyter-persistant:/jupyter-persistant jasonjwilliamsny/ubuntu-jhub-dev3.0:latest
 #
 # Based on Ubuntu
 FROM ubuntu:bionic-20180710
@@ -25,9 +25,16 @@ RUN apt-get install -y\
  openssl\
  npm nodejs\
  wget\
+ unzip\
+ zip\
  git\
  bzip2\
  tmux
+#
+#
+#
+# Get back some Ubuntu goodies that make this more suited for teaching Linux/bash
+RUN apt-get update && apt-get upgrade -y && (echo y | DEBIAN_FRONTEND=noninteractive sh -x /usr/local/sbin/unminimize)
 #
 #
 # Install python related tools and packages
@@ -51,6 +58,7 @@ RUN python3 -m pip install\
  scipy\
  matplotlib\
  pandas\
+ biopython\
  'plotnine[all]'\
  jupyter_contrib_nbextensions\
  jupyter_nbextensions_configurator\
