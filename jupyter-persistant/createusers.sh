@@ -18,7 +18,7 @@ for user in $(cat /jupyter-persistant/usernames.txt)
       # if the user does not exist in the container but they have a folder at
       # jupyter-persistant/$user create the user and use their existing folder
       # in jupyter-persistant/ as a target for a symbolic link to ~/$user
-      if [ "/jupyter-persistant/$user" ]
+      if [ -d "/jupyter-persistant/$user" ]
       then
           echo "Using existing persistant folder for $user"
           base=$user
@@ -84,7 +84,7 @@ for user in $(cat /jupyter-persistant/usernames.txt)
 # by deleting sh and using /bin/bash
 rm /bin/sh
 ln -s /bin/bash /bin/sh
-# todo: figure out how to get the Jupyter terminal to load bash profile 
+# todo: figure out how to get the Jupyter terminal to load bash profile
 echo "SHELL=/bin/bash" >> /etc/environment
 
 jupyterhub --ip 0.0.0.0 --port 8000 -f /jupyter-persistant/jupyterhub_config.py
