@@ -55,7 +55,7 @@ Configfiles for dockerized-jupyterhub
 2. Start the container with this command (remember to edit the location of
    `jupyterhub-persistant/` and use the full path)
 
-        docker run -p 8000:8000 --name jupyterhub -d -v U  FULLPATHTO/jupyter-persistant:/jupyter-persistant jasonjwilliamsny/ubuntu-jhub-dev3.0:latest
+        docker run -p 8000:8000 --name jupyterhub -d -v FULL-PATH-TO/jupyter-persistant:/jupyter-persistant jasonjwilliamsny/ubuntu-jhub-dev3.0:latest
 
     You can also add options to explicitly allow cpu/memory usage
 
