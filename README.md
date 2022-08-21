@@ -33,7 +33,8 @@ Configfiles for dockerized-jupyterhub
    to be a hub admin user. In the `jupyterhub_config.py` file,
    edit `c.Authenticator.admin_users`. Include in the brackets
    quoted, comma-separated usernames.
-
+       
+       # remember to uncomment this line after editing
        c.Authenticator.admin_users = {"user_foo","user_bar"}
 
 ### Copy jupyter-persistant
