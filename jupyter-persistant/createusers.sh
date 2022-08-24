@@ -25,7 +25,7 @@ for user in $(cat /jupyter-persistant/usernames.txt)
           password=$(openssl passwd -1 -salt xyz $base'.123')
           useradd -p $password $user
           usermod -aG sudo $user
-          echo "$username  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/$username
+          echo "$user  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/$user
           ln -s /jupyter-persistant/$user /home/$user
           chown -R $user /jupyter-persistant/$user
           chown -R $user /home/$user
@@ -41,7 +41,7 @@ for user in $(cat /jupyter-persistant/usernames.txt)
           password=$(openssl passwd -1 -salt xyz $base'.123')
           useradd -p $password $user
           usermod -aG sudo $user
-          echo "$username  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/$username
+          echo "$user  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/$user
           ln -s /jupyter-persistant/$user /home/$user
           chown -R $user /jupyter-persistant/$user
           chown -R $user /home/$user
